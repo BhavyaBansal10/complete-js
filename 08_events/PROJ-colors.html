@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Colors</title>
+  </head>
+  <body>
+    <div class="main-page">
+      <h1 class="heading">Chai or Code</h1>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+  </body>
+  <script>
+    function generator() {
+      let color = "#";
+      const row = "123456789ABCDEFG";
+      for (let i = 0; i < 6; i++) {
+        color += Math.floor(Math.random() * 16);
+      }
+      return color;
+    }
+    let interval;
+    const startfunction = function () {
+      interval = setInterval(changeByColor, 1000);
+
+      function changeByColor() {
+        console.log(`changing colors`);
+        document.body.style.backgroundColor = generator();
+      }
+    };
+
+    const endFunction = function () {
+      console.log(`Stopeed`);
+      clearInterval(interval);
+      interval = null;
+    };
+    document.querySelector("#start").addEventListener("click", startfunction);
+    document.querySelector("#stop").addEventListener("click", endFunction);
+  </script>
+</html>

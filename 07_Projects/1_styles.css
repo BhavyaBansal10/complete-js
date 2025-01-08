@@ -1,0 +1,45 @@
+.main-page{
+  text-align: center;
+  line-height: 100hv;
+}
+
+.nvbr{
+  background-color: rgb(145, 145, 145);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-btn{
+  padding: 5px 20px;
+  margin: 10px;
+}
+
+.home-page{
+  margin-top: 40px;
+}
+
+.buttons{
+  padding: 50px;
+}
+
+.btn{
+  padding: 40px;
+  margin: 8px;
+  background-color: black;
+}
+
+#grey{
+  background-color: rgb(248, 181, 181);
+}
+
+#white{
+  background-color: rgb(198, 255, 255);
+}
+
+#blue{
+  background-color: rgb(154, 154, 255);
+}
+#yellow{
+  background-color: rgb(211, 223, 183);
+}

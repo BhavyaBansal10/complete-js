@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-page">
+      <h1 class="heading">Chai or Code</h1>
+      <button id="start">Start</button>
+      <button class="btn">Stop</button>
+    </div>
+  </body>
+  <script>
+    // const h1 = document.querySelector(".heading");
+    // // h1.innerHTML = "Bhuvi";
+
+    // const changeME = setTimeout(function () {
+    //   h1.innerHTML = "Bhuvi";
+    // }, 2000);
+    // document.querySelector(".btn").addEventListener("click", function () {
+    //   clearTimeout(changeME);
+    // });
+    let i = 0;
+
+    const change = setInterval(
+      function chng() {
+        const date = new Date();
+        console.log(`Time is ${date.toLocaleTimeString()}`);
+      },
+      1000,
+      "Hellow"
+    );
+    function time() {
+      chng();
+    }
+
+    document.querySelector("#start").addEventListener("click", time);
+    document.querySelector(".btn").addEventListener("click", function () {
+      clearInterval(chng);
+    });
+  </script>
+</html>

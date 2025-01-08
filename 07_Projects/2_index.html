@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        position: relative;
+      }
+      .container {
+        position: absolute;
+        left: 28%;
+        margin-top: 60px;
+        /* text-align: center; */
+        background-color: rgb(216, 242, 242);
+        padding: 40px;
+        height: 400px;
+        width: 600px;
+      }
+      label {
+        display: block;
+        margin-top: 20px;
+      }
+      input {
+        padding: 3px 10px;
+      }
+      button {
+        padding: 5px 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <form>
+        <label
+          >Height:
+          <input type="text" id="height" placeholder="Enter your Height in cm"
+        /></label>
+
+        <label>
+          Weight:
+          <input type="text" id="weight" placeholder="Enter your Weight in cm"
+        /></label>
+
+        <p class="results"></p>
+        <button>Calculate</button>
+        <div id="weight-guide">
+          <h3>BMI Weight Guide</h3>
+          <p>Under Weight = Less than 18.6</p>
+          <p>Normal Range = 18.6 and 24.9</p>
+          <p>Overweight = Greater than 24.9</p>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const h = parseInt(document.querySelector("#height").value);
+      const w = parseInt(document.querySelector("#weight").value);
+      const res = document.querySelector(".results");
+
+      // Clear previous results
+      res.innerHTML = "";
+
+      const errorMsg = document.createElement("p");
+
+      // Validate inputs
+      if (isNaN(h) || h <= 0) {
+        errorMsg.textContent = "Please Enter Valid Height";
+        res.appendChild(errorMsg);
+      } else if (isNaN(w) || w <= 0) {
+        errorMsg.textContent = "Please Enter Valid Weight";
+        res.appendChild(errorMsg);
+      } else {
+        // Calculate BMI
+        const bmi = (w / ((h * h) / 10000)).toFixed(2);
+
+        // Create and append BMI value
+        const val = document.createElement("p");
+        val.textContent = `Your BMI is ${bmi}`;
+        res.appendChild(val);
+
+        // Create and append BMI message
+        const msg = document.createElement("p");
+        if (bmi < 18.4) {
+          msg.textContent = "You are Underweight";
+        } else if (bmi >= 18.4 && bmi <= 24.6) {
+          msg.textContent = "Your Weight is Normal";
+        } else {
+          msg.textContent = "You are Overweight";
+        }
+        res.appendChild(msg);
+      }
+    });
+  </script>
+</html>
