@@ -16,7 +16,7 @@ myP.then(
 
 
 
-// callback Hell
+//callback Hell
 
 function getData(data, func){
     setTimeout(()=>{
@@ -35,7 +35,7 @@ getData(1, ()=>{
   })
 })
 
-// promise
+promise
 
 function asyncFunc(){
   return new Promise((resolve, reject)=>{
@@ -57,3 +57,8 @@ promise.then((res)=>{
 })
 
 
+const fun = new Promise((resolve)=> resolve(10))
+.then((res)=>res*10)
+.then(resi => console.log(resi));
+
+console.log(fun);
