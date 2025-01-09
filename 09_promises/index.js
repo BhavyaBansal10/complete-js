@@ -20,7 +20,7 @@ myP.then(
 
 function getData(data, func){
     setTimeout(()=>{
-      console.log("Data ",data);
+      // console.log("Data ",data);
       if(func){
         func();
       }
@@ -35,7 +35,22 @@ getData(1, ()=>{
   })
 })
 
-promise
+function myfun(data){
+return new Promise(resolve =>{
+  setTimeout(()=>{
+    console.log("Data", data)
+  },2000)
+  resolve();
+})
+}
+myfun(1)
+.then(()=>{
+  myfun(2)
+  .then(()=>myfun(3))
+})
+
+
+//promise
 
 function asyncFunc(){
   return new Promise((resolve, reject)=>{
