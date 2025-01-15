@@ -76,4 +76,18 @@ const fun = new Promise((resolve)=> resolve(10))
 .then((res)=>res*10)
 .then(resi => console.log(resi));
 
-console.log(fun);
+// console.log(fun);
+
+async function api(){
+  try{
+    const response = fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = (await response).json();
+    console.log(data);
+  }
+  catch(error){
+    console.log("Error found");
+    
+  }
+}
+
+api();
